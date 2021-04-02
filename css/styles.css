@@ -45,6 +45,8 @@ p {
     color: #eee;
 }
 
+
+
 /* ---- Layout Rules ---- */
 main {
     margin: 10vh 1em 10vh;
@@ -88,6 +90,10 @@ section {
     transition: ease 0.3s all;
 }
 
+.navbar_list li {
+    color: red;
+}
+
 /* Header Styles */
 .page__header {
     background: #fff;
@@ -102,10 +108,12 @@ section {
     background: #000;
     padding: 3em;
     color: #fff;
+    
 }
 
 .page__footer p{
     color: #fff;
+    
 }
 
 
