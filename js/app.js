@@ -18,15 +18,27 @@
  * 
 */
 
-const sections = Array.from (document.querySelectorAll('section'));
-const navigation = document.getElementById('navbar__list');
-const fragment = document.createDocumentFragment();
+const sections = Array.from (document.querySelectorAll('section')); 
+const navigation = document.getElementById('navbar__list'); 
+const fragment = document.createDocumentFragment(); 
 
 /**
  * End Global Variables
  * Start Helper Functions
  * 
 */
+
+// based on the tutorial https://www.javascripttutorial.net/dom/css/check-if-an-element-is-visible-in-the-viewport/
+
+function isInViewport(element){
+    const rect = element.getBoundingClientRect();
+    return(
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
 
 
 
@@ -40,33 +52,66 @@ const fragment = document.createDocumentFragment();
 
 function createNavItems(){
 
-   
 for (let i = 0; i < sections.length; i++) {
-        let itemID = sections[i].getAttribute('id');
-        let itemName = sections[i].getAttribute('data-nav');
+        const itemID = sections[i].getAttribute('id');
+        const itemName = sections[i].getAttribute('data-nav');
         const newElement = document.createElement('li');
-        newElement.innerHTML = `<a class="menu__link" href="#${itemID}">${itemName}</a>`;
-    
+
+        newElement.innerHTML = `<a class="menu__link" data-id = "${itemID}"href="#${itemID}">${itemName}</a>`;
+
         fragment.appendChild(newElement);
     }
-
-
         navigation.appendChild(fragment);
-
     }
 
 
 // Add class 'active' to section when near top of viewport
+function setActiveSection (){
+
+for (let i = 0; i < sections.length; i++) {
+
+
+     if (isInViewport(sections[i])) {
+        sections[i].classList.add('your-active-class');
+      }
+        else{
+            sections[i].classList.remove('your-active-class');
+ 
+        }
+        
+     
+      
+            
+ } };
+
+
 
 
 // Scroll to anchor ID using scrollTO event
 
+function scrollToSection(){
+    let anchorSelector = 'a[href^="#"]';
+    let anchorList = document.querySelectorAll(anchorSelector);
 
+        anchorList.forEach(element => {
+            element.onclick = function (evt) {
+                    evt.preventDefault();
+                    let section = document.querySelector(this.hash);
+                    section.scrollIntoView({ behavior: 'smooth'});
+                }
+        });
+}
 /**
  * End Main Functions
  * Begin Events
  * 
 */
+
+document.addEventListener('scroll', setActiveSection);
+
+navigation.addEventListener('click', scrollToSection);
+    
+
 
 // Build menu 
 
@@ -75,3 +120,5 @@ createNavItems();
 // Scroll to section on link click
 
 // Set sections as active
+
+setActiveSection();
