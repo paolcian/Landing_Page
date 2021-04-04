@@ -94,10 +94,10 @@ function setActiveNav(){
 // Scroll to anchor ID using scrollTO event
 
 function scrollToSection(){
-    const anchorSelector = 'a[href^="#"]';
-    const anchorList = document.querySelectorAll(anchorSelector);
+    const sectionLink = 'a[href^="#"]';
+    const listLinks = document.querySelectorAll(sectionLink);
 
-        anchorList.forEach(element => {
+        listLinks.forEach(element => {
             element.onclick = function (evt) {
                     evt.preventDefault();
                     const section = document.querySelector(this.hash);
