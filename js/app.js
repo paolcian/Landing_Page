@@ -18,7 +18,7 @@
  * 
 */
 
-const sections = Array.from (document.querySelectorAll('section')); 
+const sections = Array.from(document.querySelectorAll('section')); 
 const navigation = document.getElementById('navbar__list'); 
 const fragment = document.createDocumentFragment(); 
 
@@ -69,37 +69,41 @@ for (let i = 0; i < sections.length; i++) {
 function setActiveSection (){
 
 for (let i = 0; i < sections.length; i++) {
-
-
      if (isInViewport(sections[i])) {
         sections[i].classList.add('your-active-class');
       }
         else{
             sections[i].classList.remove('your-active-class');
- 
-        }
-        
-     
-      
-            
- } };
+        }   
+    }}
 
+ 
+function setActiveNav(){
+    const navMenu = document.querySelectorAll('li');
+    console.log(navMenu);
+    navMenu.forEach(menuEl => {
+        menuEl.addEventListener('click', function(){
+            navMenu.forEach(el => el.classList.remove('your-active-class'));
+            this.classList.add('your-active-class');
+        })
+    })
+}
 
 
 
 // Scroll to anchor ID using scrollTO event
 
 function scrollToSection(){
-    let anchorSelector = 'a[href^="#"]';
-    let anchorList = document.querySelectorAll(anchorSelector);
+    const anchorSelector = 'a[href^="#"]';
+    const anchorList = document.querySelectorAll(anchorSelector);
 
         anchorList.forEach(element => {
             element.onclick = function (evt) {
                     evt.preventDefault();
-                    let section = document.querySelector(this.hash);
+                    const section = document.querySelector(this.hash);
                     section.scrollIntoView({ behavior: 'smooth'});
                 }
-        });
+        })
 }
 /**
  * End Main Functions
@@ -122,3 +126,5 @@ createNavItems();
 // Set sections as active
 
 setActiveSection();
+
+setActiveNav()

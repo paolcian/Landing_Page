@@ -7,15 +7,18 @@
  * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
  *
 */
-
+ * {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+ }
 
 /* ---- Base Rules ---- */
 body {
-    background: rgb(136,203,171);
-    background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
-    margin: 0;
+    background: rgb(222,216,239);
+    background: linear-gradient(0deg, rgba(222,216,239,1) 0%, rgba(108,88,94,1) 100%);
     font-family: 'Merriweather', serif;
-    color: #fff;
+    color: #eef5f3;
 }
 
 
@@ -24,33 +27,34 @@ body {
 h1 {
     font-family: 'Fira Sans', sans-serif;
     font-size: 3em;
-    margin: 2em 1rem;
+
 }
 
 @media only screen and (min-width: 35em){
     h1 {
-        font-size: 7em;
-        margin: 2em 4rem 1em;
+        font-size: 5em;
+    
     }
 }
 
 h2 {
-    border-bottom: 1px solid #cc1;
+    border-bottom: 1px solid #e7444e;
     font-family: 'Oxygen', Sans-Serif;
     font-size: 3em;
-    color: #fff;
+    color: #eef5f3;
+    margin-bottom: 2vh;
 }
 
 p {
     line-height: 1.6em;
-    color: #eee;
+    color: #eef5f3;
 }
 
 
 
 /* ---- Layout Rules ---- */
 main {
-    margin: 10vh 1em 10vh;
+    margin: 5vh 0 10vh;
 }
 
 .main-hero {
@@ -82,38 +86,59 @@ section {
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #000;
+    color: #4d3f37;
 }
 
 .navbar__menu .menu__link:hover {
-    background: #333;
-    color: #fff;
+    background: #4d3f37;
+    color: #eef5f3;
     transition: ease 0.3s all;
 }
 
-.navbar_list li {
-    color: red;
+
+
+li.your-active-class {
+    background-color: #d6d0ce;
 }
+
 
 /* Header Styles */
 .page__header {
-    background: #fff;
+    background: #eef5f3;
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 5;
 }
 
+
+.head {
+    background-image: url('../images/food.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 100;
+    height: 100vh;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5vh 0 0 5vh;
+
+}
+
+.main__hero h1 {
+    color: #e7444e;
+}
+
 /* Footer Styles */
 .page__footer {
-    background: #000;
+    background: #4d3f37;
     padding: 3em;
-    color: #fff;
+    color: #eef5f3;
     
 }
 
 .page__footer p{
-    color: #fff;
+    color: #eef5f3;
     
 }
 
