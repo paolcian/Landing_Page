@@ -13,12 +13,12 @@ When clicking an item from the navigation menu, the link should scroll to the ap
 The project has a structure like the one shown below. 
 css
 - styles.css 
--    
+   
 index.html
 
 js
 - app.js
-- 
+
 README.md
 
 images
