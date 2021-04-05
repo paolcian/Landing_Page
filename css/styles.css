@@ -7,47 +7,90 @@
  * To learn more, visit: https://css-tricks.com/reboot-resets-reasoning/
  *
 */
- * {
-     box-sizing: border-box;
-     margin: 0;
-     padding: 0;
- }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
 /* ---- Base Rules ---- */
 body {
-    background: rgb(222,216,239);
-    background: linear-gradient(0deg, rgba(222,216,239,1) 0%, rgba(108,88,94,1) 100%);
-    font-family: 'Merriweather', serif;
-    color: #eef5f3;
+    background-color: #f9fef8;
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3232;
+    font-size: 16px;
 }
 
 
 
 /* Typeography General*/
 h1 {
-    font-family: 'Fira Sans', sans-serif;
-    font-size: 3em;
-
+    font-family: 'Quicksand', sans-serif;
+    font-size: 2em;
+    display: inline-block;
+    position: absolute;
+    bottom: 10vh;
 }
 
-@media only screen and (min-width: 35em){
-    h1 {
-        font-size: 5em;
-    
-    }
-}
 
 h2 {
     border-bottom: 1px solid #e7444e;
-    font-family: 'Oxygen', Sans-Serif;
-    font-size: 3em;
-    color: #eef5f3;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    color: #454948;
     margin-bottom: 2vh;
 }
 
+
 p {
-    line-height: 1.6em;
-    color: #eef5f3;
+    font-size: 1em;
+    line-height: 1.3em;
+    color: #8b8a8c;
+}
+
+
+.main__hero h1 {
+    color: #454948;
+}
+
+/*medium screen*/
+
+@media (min-width: 600px) and (max-width:900px) {
+
+    p {
+        font-size: 1.2em;
+    }
+
+
+    h1 {
+        font-size: 3.2em;
+        right: 10vh;
+    }
+
+
+    h2 {
+        font-size: 2.2em;
+    }
+}
+
+/*large screen*/
+
+@media (min-width:901px) {
+    p {
+        font-size: 1.2em;
+    }
+
+
+    h1 {
+        font-size: 4em;
+        right: 10vh;
+        bottom: 20vh;
+    }
+
+
+    h2 {
+        font-size: 2.5em;
+    }
 }
 
 
@@ -57,14 +100,39 @@ main {
     margin: 5vh 0 10vh;
 }
 
+
 .main-hero {
     min-height: 40vh;
     padding-top: 3em;
 }
 
+
 section {
-    position: relative;
-    min-height: 80vh;
+    padding: 5vh 5vh 0 5vh;
+    min-height: 90vh;
+}
+
+
+img {
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+
+/*large screen*/
+
+@media (min-width:901px) {
+    section {
+        position: relative;
+        padding-top: 20vh;
+        height: 90vh;
+    }
+
+
+    img {
+        max-width: 40%;
+        height: auto;
+    }
 }
 
 
@@ -72,39 +140,44 @@ section {
 
 /* Navigation Styles*/
 .navbar__menu ul {
+    padding: 2vh;
     padding-left: 0;
-    margin: 0;
     text-align: right;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-wrap: no-wrap;
 }
 
+
 .navbar__menu li {
-    display: inline-block;
+    list-style: none;
 }
+
 
 .navbar__menu .menu__link {
     display: block;
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
-    color: #4d3f37;
+    color: #8b8a8c;
 }
 
+
 .navbar__menu .menu__link:hover {
-    background: #4d3f37;
-    color: #eef5f3;
+    color: black;
     transition: ease 0.3s all;
 }
 
 
-
-li.your-active-class {
-    background-color: #d6d0ce;
+li.your-active-class .menu__link {
+    color: black;
 }
 
 
 /* Header Styles */
 .page__header {
-    background: #eef5f3;
+    background-color: #f9fef8;
     position: fixed;
     top: 0;
     width: 100%;
@@ -121,137 +194,123 @@ li.your-active-class {
     height: 100vh;
     width: 100%;
     margin: 0 auto;
-    padding: 5vh 0 0 5vh;
-
+    padding: 7vh 0 0 5vh;
 }
 
-.main__hero h1 {
-    color: #e7444e;
-}
 
 /* Footer Styles */
 .page__footer {
-    background: #4d3f37;
-    padding: 3em;
-    color: #eef5f3;
-    
+    background: #2c3232;
+    padding: 2em;
+    text-align: center;
 }
 
-.page__footer p{
-    color: #eef5f3;
-    
+
+.page__footer p {
+    color: #f9fef8;
 }
 
 
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
-.landing__container {
+section:nth-of-type(even) .landing__container {
     padding: 1em;
     text-align: left;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
 }
 
-@media only screen and (min-width: 35em){
+
+section:nth-of-type(odd) .landing__container {
+    flex-direction: column;
+}
+
+
+.landing__container .contain {
+    padding-bottom: 5vh;
+}
+
+
+@media (min-width:901px) {
     .landing__container {
-        max-width: 50em;
-        padding: 4em;
+        width: 100%;
+        display: flex;
+        flex-direction: row;
     }
-}
 
-section:nth-of-type(even) .landing__container {
+
+    .landing__container .contain {
+        width: 60%;
+    }
+
+
+    section:nth-of-type(even) .landing__container .contain {
+        padding-right: 5vh;
+        padding-left: 10vh;
+    }
+
+
+    section:nth-of-type(odd) .landing__container .contain {
+        padding-right: 10vh;
+        padding-left: 5vh;
+    }
+
+
+    section:nth-of-type(even) .landing__container {
+        padding: 1em;
+        text-align: left;
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+
+    section:nth-of-type(odd) .landing__container {
+        flex-direction: row;
+    }
+    }
+
+
+section:nth-of-type(even) .landing__container {   
     margin-right: 0;
     margin-left: auto;
-    text-align: right; 
-}
-
-/* Background Circles */
-/* Note that background circles are created with psuedo elements before and after */
-/* Circles appear to be random do to use of :nth-of-type psuedo class */
-section:nth-of-type(odd) .landing__container::before {
-    content: '';
-    background: rgba(255, 255, 255, 0.187);
-    position: absolute;
-    z-index: -5;
-    width: 20vh;
-    height: 20vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
-section:nth-of-type(even) .landing__container::before {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
-    position: absolute;
-    top: 3em;
-    right: 3em;
-    z-index: -5;
-    width: 10vh;
-    height: 10vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
-section:nth-of-type(3n) .landing__container::after {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    z-index: -5;
-    width: 10vh;
-    height: 10vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
-}
-
-section:nth-of-type(3n + 1) .landing__container::after {
-    content: '';
-    background: rgb(255,255,255);
-    background: linear-gradient(0deg, rgba(255,255,255,.1) 0%, rgba(255,255,255,.2) 100%);
-    position: absolute;
-    right: 20vw;
-    bottom: -5em;
-    z-index: -5;
-    width: 15vh;
-    height: 15vh;
-    border-radius: 50%;
-    opacity: 0;
-    transition: ease 0.5s all;
+    text-align: right;
 }
 
 
 /* ---- Theme State Rules ---- */
 /* Section Active Styles */
 /* Note: your-active-class class is applied through javascript. You should update the class here and in the index.html to what you set in your javascript file.  */
-section.your-active-class {
-    background: rgb(0, 0, 0);
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+
+section.your-active-class>.landing__container>.contain>p {
+    color: black;
 }
+
+
+section.your-active-class {
+    background-color: #e9ebed;
+}
+
 
 section.your-active-class .landing__container::before {
     opacity: 1;
     animation: rotate 4s linear 0s infinite forwards;
 }
 
+
 section.your-active-class .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
 }
 
+
 /* Section Active Styles Keyframe Animations */
 @keyframes rotate {
-	from {
-		transform: rotate(0deg)
-		           translate(-1em)
-		           rotate(0deg);
-	}
-	to {
-		transform: rotate(360deg)
-		           translate(-1em) 
-		           rotate(-360deg);
-	}
+    from {
+        transform: rotate(0deg) translate(-1em) rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg) translate(-1em) rotate(-360deg);
+    }
 }
