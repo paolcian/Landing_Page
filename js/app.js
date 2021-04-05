@@ -77,6 +77,7 @@ for (let i = 0; i < sections.length; i++) {
         }   
     }}
 
+    // Add class 'active' to nav item when item clicked
  
 function setActiveNav(){
     const navMenu = document.querySelectorAll('li');
@@ -88,6 +89,20 @@ function setActiveNav(){
         })
     })
 }
+
+// Add class 'active' to nav item when section near top of viewport
+
+function setActiveItem(){
+    const navItem = document.querySelectorAll('li');
+    for (let i = 0; i < sections.length; i++) {
+        if (isInViewport(sections[i])) {
+           navItem[i].classList.add('your-active-class');
+         }
+           else{
+               navItem[i].classList.remove('your-active-class');
+           }   
+       }}
+
 
 
 
@@ -114,6 +129,8 @@ function scrollToSection(){
 document.addEventListener('scroll', setActiveSection);
 
 navigation.addEventListener('click', scrollToSection);
+navigation.addEventListener('click', setActiveNav);
+document.addEventListener('scroll', setActiveItem);
     
 
 
@@ -127,4 +144,6 @@ createNavItems();
 
 setActiveSection();
 
-setActiveNav()
+setActiveNav();
+
+setActiveItem();

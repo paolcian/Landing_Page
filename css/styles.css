@@ -23,6 +23,18 @@ body {
 
 
 
+.wrapper {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: repeat(6, auto);
+    grid-template-areas:
+        "nv"
+        "mn"
+        "ft";
+}
+
+
+
 /* Typeography General*/
 h1 {
     font-family: 'Quicksand', sans-serif;
@@ -98,23 +110,25 @@ p {
 /* ---- Layout Rules ---- */
 main {
     margin: 5vh 0 10vh;
+    grid-area: mn;
 }
 
 
 .main-hero {
     min-height: 40vh;
     padding-top: 3em;
+    grid-area: hd;
 }
 
 
 section {
-    padding: 5vh 5vh 0 5vh;
-    min-height: 90vh;
+    padding: 10vh 5vh 0 5vh;
+    height: 90vh;
 }
 
 
 img {
-    max-width: 90%;
+    max-width: 80%;
     margin: 0 auto;
 }
 
@@ -139,6 +153,7 @@ img {
 /* ---- Module Rules ---- */
 
 /* Navigation Styles*/
+
 .navbar__menu ul {
     padding: 2vh;
     padding-left: 0;
@@ -147,6 +162,7 @@ img {
     flex-direction: row;
     justify-content: flex-end;
     flex-wrap: no-wrap;
+    height: 10vh;
 }
 
 
@@ -156,10 +172,10 @@ img {
 
 
 .navbar__menu .menu__link {
-    display: block;
-    padding: 1em;
+    padding: 2vh;
     font-weight: bold;
     text-decoration: none;
+    line-height: 5vh;
     color: #8b8a8c;
 }
 
@@ -182,6 +198,8 @@ li.your-active-class .menu__link {
     top: 0;
     width: 100%;
     z-index: 5;
+    grid-area: nv;
+    height: 10vh;
 }
 
 
@@ -203,6 +221,7 @@ li.your-active-class .menu__link {
     background: #2c3232;
     padding: 2em;
     text-align: center;
+    grid-area: ft;
 }
 
 
@@ -214,7 +233,6 @@ li.your-active-class .menu__link {
 /* ---- Theme Rules ---- */
 /* Landing Container Styles */
 section:nth-of-type(even) .landing__container {
-    padding: 1em;
     text-align: left;
     display: flex;
     flex-direction: column-reverse;
@@ -228,7 +246,7 @@ section:nth-of-type(odd) .landing__container {
 
 
 .landing__container .contain {
-    padding-bottom: 5vh;
+    padding-bottom: 3vh;
 }
 
 
